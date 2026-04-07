@@ -1,0 +1,20 @@
+{
+  "name": "shophub-deployment-scripts",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "build": "npm run backend:build && npm run frontend:build",
+    "start": "concurrently \"npm run backend:start\" \"npm run frontend:start\"",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:build": "cd backend && npm run build",
+    "backend:start": "cd backend && npm start",
+    "frontend:dev": "cd frontend && npm start",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:start": "cd frontend && npm run start",
+    "deploy:frontend": "cd frontend && npm run build && aws s3 sync build/ s3://shophub-frontend",
+    "deploy:backend": "cd backend && npm run build && git subtree push --prefix backend heroku main",
+    "deploy:all": "npm run build && npm run deploy:frontend && npm run deploy:backend"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
