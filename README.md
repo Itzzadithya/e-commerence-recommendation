@@ -336,17 +336,6 @@ api.yourdomain.com -> YOUR_BACKEND_URL
 sudo certbot --nginx -d shop.yourdomain.com -d api.yourdomain.com
 ```
 
-### Environment Variables (Production)
-```env
-# Backend Production
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/ecommerce
-PORT=5000
-NODE_ENV=production
-CORS_ORIGIN=https://shop.yourdomain.com
-
-# Frontend Production
-REACT_APP_API_URL=https://api.yourdomain.com/api
-```
 
 ## 🔍 Monitoring & Maintenance
 
